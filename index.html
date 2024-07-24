@@ -93,6 +93,21 @@
             height: auto;
             flex: 1; /* Ensure the GIFs take equal space */
         }
+        .gif-row figcaption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .main-caption {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        .subcaption {
+            font-size: 12px;
+            color: #777;
+        }
     </style>
 </head>
 
@@ -202,7 +217,7 @@
             <div class="col-md-2 col-md-offset-5 text-center">
                 <ul class="nav nav-pills nav-justified">
                     <li>
-                        <a href="https://arxiv.org/abs/2211.02127">
+                        <a href="https://arxiv.org/html/2407.10031v1">
                             <image src="img/nice_paper_png.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
                         </a>
@@ -280,20 +295,34 @@
                 </h3>
                 <!-- <image src="img/fig_1.jpg" class="img-responsive" alt="overview"><br> -->
                     <div class="gif-row">
-                        <img src="img/alice.gif" height=60px alt="Alice POV">
-                        <img src="img/bob.gif" height=60px alt="Bob POV">
+                        <figure>
+                            <img src="img/alice.gif" alt="Description of the first GIF">
+                            <figcaption>
+                                Alice's POV
+                                <div class="subcaption"></div>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="img/bob.gif" alt="Description of the second GIF">
+                            <figcaption>
+                                Bob's POV
+                                <div class="subcaption"></div>
+                            </figcaption>
+                        </figure>
                     </div>
+                    <div class="main-caption">
+                        Alice and Bob are completing the task 
+                        "Put all groceries in the fridge" in the AI2-THOR 
+                        environment. The agents split up the task amongst 
+                        themselves and work together to complete the task.
+                    </div>
+                    <br><br>
                     <p class="text-justify">
                         LLaMAR leverages LMs to generalize from diverse data, 
                         acting as a compressed knowledge base for planning without 
                         relying on domain-specific knowledge or handcrafted rules. 
                         This approach grounds LLMs to the environment by 
                         incorporating real-time feedback and observations.
-                        TALK ABOUT PREVIOUS WORK AND THE GAPS IN IT.
-                        <!-- <i><b>"Can we train scalable multi-agent 
-                        reinforcement learning policies that use limited local 
-                        information about the environment to perform collision-free 
-                        navigation effectively?" </b></i> -->
                         <br><br>
                     </p>
             </div>
