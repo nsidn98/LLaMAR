@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>LLaMAR</title>
+
+    <meta name="description" content="LLaMAR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--FACEBOOK-->
+    <!-- <meta property="og:image" content="img/twitter-card.jpg"> -->
+    <!-- <meta property="og:image:type" content="image/png"> -->
+    <!-- <meta property="og:image:width" content="1024"> -->
+    <!-- <meta property="og:image:height" content="512"> -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nsidn98.github.io/LLaMAR/" />
+    <meta property="og:title" content="LLaMAR" />
+    <meta property="og:description"
+        content="Project page for LLaMAR: Long-Horizon Planning for Multi-Agent Robots in
+        Partially Observable Environments" />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://nsidn98.github.io/LLaMAR/" />
+    <meta name="twitter:title" content="LLaMAR" />
+    <meta name="twitter:description"
+        content="Project page for LLaMAR: Long-Horizon Planning for Multi-Agent Robots in
+        Partially Observable Environments" />
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H2C4DFSMD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5H2C4DFSMD');
+    </script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <style>
+        .highlight-box {
+            border: 2px solid #3105df; /* Border color */
+            padding: 20px; /* Space inside the box */
+            margin: 20px 0; /* Space outside the box */
+            background-color: #f9f9f9; /* Background color */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Box shadow */
+        }
+        .highlight-box h2 {
+            color: #3105df; /* Title color */
+        }
+        .highlight-box p {
+            font-size: 16px; /* Text size */
+            line-height: 1.5; /* Line height */
+        }
+    </style>
+
+    <style>
+        .gif-container {
+            text-align: center; /* Center the GIF */
+            margin: 20px 0;
+        }
+        .gif-container img {
+            max-width: 100%; /* Make sure the GIF is responsive */
+            height: auto;
+        }
+        .gif-row {
+            display: flex;
+            justify-content: center; /* Center the GIFs horizontally */
+            gap: 20px; /* Space between the GIFs */
+            margin: 20px 0;
+        }
+        .gif-row img {
+            max-width: 300px;
+            height: auto;
+            flex: 1; /* Ensure the GIFs take equal space */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                LLaMAR: Long-Horizon Planning for Multi-Agent Robots in Partially Observable Environments </br>
+                <small>
+                    Preprint
+                </small>
+            </h1>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://nsidn98.github.io">
+                            Siddharth Nayak
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="http://www.omleda.com/">
+                            Adelmo Morrison Orozco
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://mtenhave.myportfolio.com/">
+                            Marina Ten Have
+                        </a>
+                        </br>MIT
+                    </li>
+                <!-- </br> -->
+                    <li>
+                        <a href="https://www.linkedin.com/in/vittal-thirumalai">
+                            Vittal Thirumalai
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/jackson-jiawei-zhang/">
+                            Jackson Zhang
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="http://www.linkedin.com/in/darren3chen">
+                            Darren Chen
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=UPH3tawAAAAJ&hl=en">
+                            Aditya Kapoor
+                        </a>
+                        </br>TCS RnI
+                    </li>
+                    <li>
+                        <a href="https://www.aiaccelerator.af.mil/AIA-Team/Article-View/Article/3309735/eric-robinson/">
+                            Eric Robinson
+                        </a>
+                        </br>USAF-MIT AI Accelerator
+                    </li>
+                    <li>
+                        <a href="https://karthikg92.github.io/">
+                            Karthik Gopalakrishnan
+                        </a>
+                        </br>Stanford University
+                    </li>
+                    <li>
+                        <a href="https://web.stanford.edu/~jh2/">
+                            James Harrison
+                        </a>
+                        </br>Google DeepMind
+                    </li>
+                    <li>
+                        <a href="https://brianichter.com/">
+                            Brian Ichter
+                        </a>
+                        </br>Google DeepMind
+                    </li>
+                    <li>
+                        <a href="https://anuj-mahajan.github.io/">
+                            Anuj Mahajan
+                        </a>
+                        </br>Apple
+                    </li>
+                    <li>
+                        <a href="https://aeroastro.mit.edu/dinamo-group/">
+                            Hamsa Balakrishnan
+                        </a>
+                        </br>MIT
+                    </li>
+                </ul>
+
+                <!-- *denotes equal contribution -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- <div class="col-md-5 col-md-offset-3 text-center"> -->
+            <div class="col-md-2 col-md-offset-5 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://arxiv.org/abs/2211.02127">
+                            <image src="img/nice_paper_png.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nsidn98/LLaMAR">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong> Code Coming Soon!</strong></h4>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="https://www.dropbox.com/s/y6l93szjk7lo96k/ICML%20Slides.pptx?dl=0">
+                            <image src="img/ppt.png" height="60px">
+                                <h4><strong>Slides</strong></h4>
+                        </a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="https://www.youtube.com/watch?v=ooj9E-endGc">
+                            <image src="img/yt.png" height="60px">
+                                <h4><strong>YouTube</strong></h4>
+                        </a>
+                    </li> -->
+                    
+                    <!-- <li>
+                        <a href="http://nsidn98.github.io/files/Publications_assets/InforMARL/poster/ICML_InforMARL_Poster.pdf">
+                            <image src="img/ICML_InforMARL_Poster.png" height="60px">
+                                <h4><strong>Poster</strong></h4>
+                        </a>
+                    </li> -->
+
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                    <p class="text-justify">
+                        The ability of Language Models (LMs) to understand natural 
+                        language makes them a powerful tool for parsing human 
+                        instructions into task plans for autonomous robots. 
+                        Unlike traditional planning methods that rely on domain-specific 
+                        knowledge and handcrafted rules, LMs generalize from 
+                        diverse data and adapt to various tasks with minimal 
+                        tuning, acting as a compressed knowledge base. However, 
+                        LMs in their standard form face challenges with 
+                        long-horizon tasks, particularly in partially observable 
+                        multi-agent settings. We propose an LM-based Long-Horizon 
+                        Planner for Multi-Agent Robotics (LLaMAR), a cognitive 
+                        architecture for planning that achieves state-of-the-art 
+                        results in long-horizon tasks within partially observable 
+                        environments. LLaMAR employs a plan-act-correct-verify 
+                        framework, allowing self-correction from action execution 
+                        feedback without relying on oracles or simulators. 
+                        Additionally, we present MAP-THOR, a comprehensive test 
+                        suite encompassing household tasks of varying complexity 
+                        within the AI2-THOR environment. Experiments show that 
+                        LLaMAR achieves a 30% higher success rate compared to 
+                        other state-of-the-art LM-based multi-agent planners.
+                        <br>
+                    </p>
+            </div>
+        </div>
+
+        
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Demo
+                </h3>
+                <!-- <image src="img/fig_1.jpg" class="img-responsive" alt="overview"><br> -->
+                    <div class="gif-row">
+                        <img src="img/alice.gif" height=60px alt="Alice POV">
+                        <img src="img/bob.gif" height=60px alt="Bob POV">
+                    </div>
+                    <p class="text-justify">
+                        LLaMAR leverages LMs to generalize from diverse data, 
+                        acting as a compressed knowledge base for planning without 
+                        relying on domain-specific knowledge or handcrafted rules. 
+                        This approach grounds LLMs to the environment by 
+                        incorporating real-time feedback and observations.
+                        TALK ABOUT PREVIOUS WORK AND THE GAPS IN IT.
+                        <!-- <i><b>"Can we train scalable multi-agent 
+                        reinforcement learning policies that use limited local 
+                        information about the environment to perform collision-free 
+                        navigation effectively?" </b></i> -->
+                        <br><br>
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    LLaMAR: Approach
+                </h3>
+                <p class="text-justify">
+                        This is where our MARL framework for navigation - <i>InforMARL</i> comes into the picture. InforMARL, consists 
+                        of four modules, as shown in Figure 1. We describe each in detail below:
+                    <br>
+                    <center>
+                        <figure>
+                            <image src="img/LLaMAR_architecture_illustration_v4.png" 
+                            class="center" alt="The MDP for RL agent" height="450"/>
+                            <figcaption><b><br>Figure 3:</b> Overview of 
+                                <i>LLaMAR’s</i> modular cognitive architecture. 
+                                LLaMAR leverages LMs within four key modules: 
+                                Planner, Actor, Corrector, and Verifier, each 
+                                with specific roles. The Planner breaks down the 
+                                high-level language instruction into feasible 
+                                subtasks to achieve the environment goal. The 
+                                Actor determines the high-level actions each agent 
+                                should perform. These actions trigger low-level 
+                                policies that generate and execute a sequence of 
+                                primitive actions in sync across all agents. 
+                                Based on execution feedback, the Corrector 
+                                suggests corrections for high-level actions and 
+                                the Verifier Module validates completion of 
+                                subtasks. 
+                            </figcaption>
+                        </figure>
+                    </center>
+                    
+                    <br>
+                    <br>
+
+                    Grounding LLMs to the environment involves ensuring that the 
+                    language models' generated plans and actions correspond 
+                    accurately to the environment and its dynamics. In LLaMAR, 
+                    we achieve this through action execution feedback that 
+                    allows to dynamically adjust strategies, and observation 
+                    and memory modules allowing agents to build a comprehensive 
+                    understanding of the environment over time.
+                    
+                    <br><br>
+                    How does it work? LLaMAR enables agents to:
+                    <ul>
+                        <li>
+                            Plan subtasks for task completion by creating two lists: open subtasks and closed subtasks
+                        </li>
+                        <li>
+                            Select high-level actions for agents to complete subtasks
+                        </li>
+                        <li>
+                            Identify and correct failures post-action execution using visual feedback
+                        </li>
+                        <li>
+                            Verify subtask completion based on action execution and modify the open and closed subtasks list
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+
+                    LLaMAR’s cognitive architecture includes four specialized modules that collectively enhance its planning capabilities:
+                    <ul>
+                        <li>
+                            <b>Planner Module</b>: This module breaks down 
+                            high-level tasks into feasible subtasks based on 
+                            current observations and memory.
+                        </li>
+                        <li>
+                            <b>Actor Module</b>: The Actor module selects 
+                            high-level actions for each agent to execute 
+                            the planned subtasks. It takes into account the 
+                            corrective actions suggested by the Corrector 
+                            module and updates the shared memory with the 
+                            outcomes of these actions.
+                        </li>
+                        <li>
+                            <b>Corrector Module</b>: It provides corrective actions 
+                            and plausible reasons for action failures for the 
+                            subsequent timestep to prevent the Actor Module 
+                            from choosing the same action.
+                        </li>
+                        <li>
+                            <b>Verifier Module</b>: It checks the completion 
+                            of subtasks based on the outcomes of executed 
+                            actions based on current observations, actions, 
+                            and memory and distinguishes itself from other 
+                            self-verification methods that rely on their 
+                            internal environment model.
+                        </li>
+                    </ul>
+                    <br>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    MAP-THOR
+                </h3>
+                <p class="text-justify">
+                    To evaluate the performance of LLaMAR and benchmark other 
+                    baseline methods, we create a benchmark dataset of tasks 
+                    which we call MAP-THOR (Multi-Agent Planning tasks in AI2-THOR).
+                    While Smart-LLM (Kannan et al., 2023) introduces a dataset of 
+                    36 tasks within AI2-Thor (Kolve et al., 2017) classified by 
+                    complexity, their tasks are limited to single floor plans. 
+                    This limitation hinders testing the robustness of planners 
+                    across different room layouts. Additionally, some tasks in 
+                    their dataset cannot be performed by multiple agents, 
+                    regardless of task division, such as Pick up the pillow, 
+                    Open the laptop to turn it on, and Turn off the lamp.
+                    <br><br>
+                    By contrast, MAP-THOR includes tasks solvable by both single 
+                    and multiple agents. We classify the tasks into four 
+                    categories based on the ambiguity of the language instructions. 
+                    To test the planner robustness, we provide five different 
+                    floor plans for each task. We also include automatic checker 
+                    modules to verify subtask completion and evaluate plan quality. 
+                    Our dataset comprises 45 tasks, each defined for five distinct 
+                    floor plans, ensuring comprehensive testing and evaluation.
+                    <br>
+                    <br>
+                    <h4>
+                        Task Classification
+                    </h4>
+                    We conduct experiments with tasks of varying difficulty levels, 
+                    where an increase in difficulty of the tasks corresponds to 
+                    an increased ambiguity in the language instructions.
+                    <br>
+                    <ul>
+                        To summarize, the tasks in MAP-THOR are classified into 4 categories:
+                        <li>
+                            <b>Explicit item type, quantity, and target location</b>: 
+                            Agents are explicitly instructed to transport 
+                            specific items to specific target locations. For 
+                            example, put bread, lettuce, and a tomato in the 
+                            fridge clearly defines the objects (tomato, lettuce, 
+                            bread) and the target (fridge).
+                        </li>
+                        <li>
+                            <b>Explicit item type and target location but implicit 
+                            item quantity</b>: The object type is explicitly described, 
+                            but its quantity is not disclosed. For example, Put 
+                            all the apples in the fridge. Agents must explore the 
+                            environment to locate all specified items and also 
+                            predict when to stop.
+                        </li>
+                        <li>
+                            <b>Explicit target location but implicit item types and 
+                            quantity</b>: The target location is explicitly defined 
+                            but the item types and their quantities are concealed. 
+                            For example, Put all groceries in the fridge.
+                        </li>
+                        <li>
+                            <b>Implicit target location, item type and quantity</b> : 
+                            Item types and their quantities along with the target 
+                            location are implicitly defined. For example, Clear 
+                            the floor by placing the items at their appropriate 
+                            positions. The agent is expected to place items like 
+                            pens, books, and laptops on the study table, and litter 
+                            in the trash can.
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h4>
+                        Metrics
+                    </h4>
+                    We propose to use the following metrics to compare the performance
+                    of different algorithms on the tasks:
+                    <ul>
+                        <li>
+                            <b>Success Rate</b> (SR): The fraction of episodes 
+                            in which all subtasks are completed. Success equals 
+                            1 if all subtasks are successfully executed in an 
+                            episode, otherwise it is 0.
+                        </li>
+                        <li>
+                            <b>Transport Rate</b> (TR): The fraction of subtasks 
+                            completed within an episode, which provides a finer 
+                            granularity of task completion.
+                        </li>
+                        <li>
+                            <b>Coverage</b> (C): The fraction of successful 
+                            interactions with target objects. It is useful to 
+                            verify if the LMs can infer the objects to interact
+                            with, in scenarios where the tasks have objects 
+                            that are specified implicitly.
+                        </li>
+                        <li>
+                            <b>Balance</b> (B): The ratio between the minimum 
+                            and maximum number of successful high-level actions 
+                            executed by any agent that contributed towards making 
+                            progress in a subtask necessary for the completion of 
+                            the language instruction task. We only check for a 
+                            subset of high-level actions that must be executed 
+                            for accomplishing critical subtasks that leads to 
+                            the successful completion of the language instruction 
+                            task.
+                        </li>
+                        <li>
+                            <b>Average Steps</b> (L): The number of high-level 
+                            actions taken by the team to complete the task, 
+                            capped at T=30 in our experiments. If the task is 
+                            not completed within T steps, the episode is deemed 
+                            a failure.
+                        </li>
+                    </ul>
+                    For all the metrics, we propose to report the means along 
+                    with the 95% confidence interval across all the tasks. 
+                    Since SR is a binomial metric, we report the Clopper-Pearson 
+                    Interval as the confidence interval.
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Experiments
+                </h3>
+                
+                <h4>
+                    Choice of the underlying LM
+                </h4>
+                    <center>
+                        <figure>
+                            <image src="img/vlm.png" 
+                            class="center" alt="The MDP for RL agent" height="450"/>
+                            <figcaption><b><br>Table 2:</b> To understand the 
+                                impact of the underlying LM’s quality on 
+                                decision-making, we initially experimented with 
+                                different LMs. Specifically, we utilize both the 
+                                language-only and vision-language models of GPT-4, 
+                                IDEFICS-2, LLaVA, and CoGVLM. Among these, GPT-4, 
+                                when used solely with text inputs, exhibits the 
+                                poorest performance. This is attributed to the 
+                                agents’ inability to reason about visual 
+                                observations, which is particularly detrimental 
+                                for the Corrector module. Substituting GPT-4V 
+                                with other vision-language models results in a 
+                                decline in performance and hence we use GPT-4V 
+                                as the underlying VLM while comparing to the 
+                                baselines.
+                            </figcaption>
+                        </figure>
+                    </center>
+
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Difference to other LLM-based Methods
+                </h3>
+                    <p class="text-justify">
+                        <h4>
+                            Environments
+                        </h4>
+                        We evaluate our method on the following environments:
+                        <ul>
+                            <li> <b>Target</b>: Each agent tries to reach its preassigned 
+                                goal while avoiding collisions with other entities 
+                                in the environment.</li>
+                            <li> <b>Coverage</b>: Each agent tries to go to a goal 
+                                while avoidin collsions with other entities, and 
+                                ensuring that no more than one agent reaches 
+                                the same goal.</li>
+                            <li> <b>Formation</b>: There is a single landmark (the counterpart 
+                                of a goal for this task) and the agents try to position
+                                themselves in an N-sided regular polygon with the 
+                                landmark at its centre.</li>
+                            <li> <b> Line</b>: There are two landmarks, and the 
+                                agents try to position themselves equally spread 
+                                out in a line between the two.</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h2>Key Insight</h2>
+                            <p>
+                                The key insight of our work: Integrating a 
+                                plan-act-correct-verify framework with LMs 
+                                enables robust, adaptive multi-agent task 
+                                planning in dynamic, partially observable environments.
+                            </p>
+                        </div>
+
+                        <center>
+                            <div class="row">
+                                <div style="float:left; margin-right:20px;">
+                                    <img src="img/navigation.png" height="150" width="150" style="border: 1px solid #555" />
+                                    <p style="text-align:center;">Target</p>
+                                </div>
+                                <div style="float:left; margin-right:20px;">
+                                    <img src="img/spread.png" height="150" width="150" style="border: 1px solid #555" />
+                                    <p style="text-align:center;">Coverage</p>
+                                </div>
+                                <div style="float:left; margin-right:20px;">
+                                    <img src="img/formation.png" height="150" width="150" style="border: 1px solid #555" />
+                                    <p style="text-align:center;">Formation</p>
+                                </div>
+                                <div style="float:left; margin-right:20px;">
+                                    <img src="img/line.png" height="150" width="150" style="border: 1px solid #555" />
+                                    <p style="text-align:center;">Line Formation</p>
+                                </div>
+                            </div>
+                            <figcaption><b><br>Figure 4</b>: The agents are shown in blue circles, the goals are shown in green and obstacles are shown in black in the Target
+                                and Coverage environment. The landmarks are shown in black in the Formation and Line environments.</figcaption>
+                        </center>
+                        
+                        
+
+                        <h4>
+                            Scalability of InforMARL
+                        </h4>
+
+                        <center>
+                            <figure>
+                                <image src="img/scale_table.png" class="center" alt="The weight extraction method" height="350"/>
+                                <figcaption><b><br>Table 2</b>: Test performance of InforMARL for the <i>Target</i> environment, 
+                                when trained on scenarios with 
+                                <img src="https://latex.codecogs.com/svg.image?n"/> 
+                                agents and tested on scenarios with 
+                                <img src="https://latex.codecogs.com/svg.image?m"/> 
+                                agents in the environment. 
+                                </figcaption>
+                            </figure>
+                        </center>
+
+                        <h4>
+                            Performance in Other Task Environments
+                        </h4>
+                        <center>
+                            <figure>
+                                <image src="img/multi_envs.png" class="center" alt="other envs" height="250"/>
+                                <figcaption><b><br>Table 3</b>: Performance of RMAPPO and InforMARL on the
+                                    coverage, formation, and line tasks. We note that Infor-
+                                    MARL was trained on the 3-agent scenario and tested on
+                                    m = {3, 7} agents, while RMAPPO was trained and tested
+                                    on the same number of agents (i.e., with m = n).
+                                </figcaption>
+                            </figure>
+                        </center>
+                        
+
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Conclusions
+                </h3>
+                    <p class="text-justify">
+                        <ul>
+                            <li> 
+                                We showed that having just local observations as 
+                                states is not enough for standard MARL algorithms 
+                                to learn meaningful policies. 
+                            </li>
+
+                            <li> 
+                                Along with this, we also showed that 
+                                albeit na&iumlvely concatenating state information 
+                                about all the entities in the environment helps 
+                                to learn good policies, they are not transferable 
+                                to other scenarios with a different number of 
+                                entities than what it was trained on.
+                            </li>
+
+                            <li> 
+                                InforMARL is able to learn transferable policies 
+                                using standard MARL algorithms using just local 
+                                observations and an aggregated neighborhood 
+                                information vector. Furthermore, it has better 
+                                sample complexity than other standard MARL 
+                                algorithms that use global observation.
+                            </li>
+                        </ul>
+                        <br>
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Future Work
+                </h3>
+                    <p class="text-justify">
+                        <ul>
+                            <li> 
+                                Include the introduction of more complex 
+                                (potentially adversarial) dynamic obstacles in 
+                                the environment.
+                            </li>
+
+                            <li> 
+                                Adding a safety guarantee layer for the actions 
+                                of the agents to avoid collisions at all costs.
+                            </li>
+
+                            <li> 
+                                Investigate the use of InforMARL for curriculum 
+                                learning and transfer learning to more complex environments.
+                            </li>
+                        </ul>
+                    </p>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    <br />
+                    We would like to thank Keerthana Gopalakrishnan, Sydney Dolan, 
+                    Jasmine Aloor, and Victor Qin for helpful discussions and feedback. 
+                    OpenAI credits for GPT-4 access was provided through OpenAI's 
+                    Researcher Access Program. The research was sponsored by the 
+                    United States Air Force Research Laboratory and the 
+                    Department of the Air Force Artificial Intelligence Accelerator 
+                    and was accomplished under Cooperative Agreement Number FA8750-19-2-1000. 
+                    The views and conclusions contained in this document are those 
+                    of the authors and should not be interpreted as representing 
+                    the official policies, either expressed or implied, of the 
+                    Department of the Air Force or the U.S. Government. The U.S. 
+                    Government is authorized to reproduce and distribute reprints 
+                    for Government purposes notwithstanding any copyright notation 
+                    herein.
+                    <br />
+                    <br /> This website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and
+                    <a href="https://www.matthewtancik.com">Matthew Tannick</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
